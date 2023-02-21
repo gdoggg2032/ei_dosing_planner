@@ -1,5 +1,6 @@
 
 
+import itertools
 import json
 from collections import defaultdict
 
@@ -68,7 +69,7 @@ def optimize_containers(plan: Plan) -> Plan:
 
     # add constraints
     component_effect_dict = dict()
-    for constraint in plan.constraints:
+    for constraint in plan.component_constraints:
         component_name = constraint.name
         if not component_name in component_solution_dict:
             # no solutions contain this component
@@ -91,12 +92,23 @@ def optimize_containers(plan: Plan) -> Plan:
         solver.Add(total_component_effect <= constraint.max)
         component_effect_dict[component_name] = total_component_effect
 
+    for constraint in plan.solution_constraints:
+        same_solution_list = []
+        for container_name in container_solution_vars:
+            for solution_name in container_solution_vars[container_name]:
+                if solution_name == constraint.name:
+                    same_solution_list.append(container_solution_vars[container_name][solution_name])
+        for solution1, solution2 in itertools.combinations(same_solution_list, 2):
+            solver.Add(solution1 == solution2)
+
     # objective function: minimize usage of all solutions
     total_usage = 0
     for container_name in container_solution_vars:
         for solution_name in container_solution_vars[container_name]:
             total_usage += container_solution_vars[container_name][solution_name]
-    solver.Minimize(total_usage)
+
+    objective = total_usage
+    solver.Minimize(objective)
 
     # info
     print('Number of variables =', solver.NumVariables())

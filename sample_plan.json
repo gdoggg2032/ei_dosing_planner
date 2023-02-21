@@ -1,27 +1,66 @@
 {
-    "name": "ei",
+    "name": "60H_EI",
     "environment": {
         "volume": 118.7
     },
     "solutions": [
         {
-            "name": "kno3",
+            "name": "KNO3",
             "components": {
-                "k": 0.3867167409142342,
-                "n": 0.1385386417047136
+                "K": 0.3867167409142342,
+                "N": 0.1385386417047136
             }
         },
         {
-            "name": "kh2po4",
+            "name": "KH2PO4",
             "components": {
-                "k": 0.28730678825528727,
-                "p": 0.22760508974568364
+                "K": 0.28730678825528727,
+                "P": 0.22760508974568364
             }
         },
         {
-            "name": "seachem_iron",
+            "name": "CaCl2",
             "components": {
-                "fe": 0.01
+                "Ca": 0.3611
+            }
+        },
+        {
+            "name": "MgCl2.6H2O",
+            "components": {
+                "Mg": 0.1196
+            }
+        },
+        {
+            "name": "Flourish Iron",
+            "components": {
+                "Fe": 0.01
+            }
+        },
+        {
+            "name": "Equilibrium",
+            "components": {
+                "K": 0.1909,
+                "Ca": 0.0806,
+                "Mg": 0.0241,
+                "Fe": 0.0011,
+                "Mn": 0.0006
+            }
+        },
+        {
+            "name": "Flourish Trace",
+            "components": {
+                "B": 0.000028,
+                "Co": 0.0000003,
+                "Cu": 0.000032,
+                "Mn": 0.000085,
+                "Mo": 0.000003,
+                "Zn": 0.000169
+            }
+        },
+        {
+            "name": "Flourish Excel",
+            "components": {
+                "glutaraldehyde": 0.02
             }
         }
     ],
@@ -29,17 +68,42 @@
         {
             "name": "macro",
             "solutions": {
-                "kno3": 49.0,
-                "kh2po4": 20.0
+                "KNO3": 0,
+                "KH2PO4": 0,
+                "Flourish Excel": 0
             },
-            "volume": 1000.0
+            "volume": 450.0
         },
         {
             "name": "micro",
             "solutions": {
-                "seachem_iron": 40.0
+                "Flourish Iron": 0,
+                "Flourish Excel": 0
             },
-            "volume": 1000.0
+            "volume": 450.0
+        },
+        {
+            "name": "GH booster",
+            "solutions": {
+                "CaCl2": 0,
+                "MgCl2.6H2O": 0,
+                "Flourish Excel": 0
+            },
+            "volume": 450.0
+        },
+        {
+            "name": "Equilibrium",
+            "solutions": {
+                "Equilibrium": 0
+            },
+            "volume": 450.0
+        },
+        {
+            "name": "Flourish Trace",
+            "solutions": {
+                "Flourish Trace": 0
+            },
+            "volume": 450.0
         }
     ],
     "schedule": [
@@ -66,46 +130,77 @@
         {
             "name": "micro",
             "dose": 10.0
+        },
+        {
+            "name": "GH booster",
+            "dose": 30.0
+        },
+        {
+            "name": "Equilibrium",
+            "dose": 450.0
+        },
+        {
+            "name": "Flourish Trace",
+            "dose": 450.0
         }
     ],
-    "constraints": [
+    "component_constraints": [
         {
-            "name": "n",
-            "min": 1.7,
-            "max": 1.9
+            "name": "N",
+            "min": 1.1295,
+            "max": 6.777
         },
         {
-            "name": "p",
-            "min": 1.1,
-            "max": 1.2
+            "name": "P",
+            "min": 0.3261,
+            "max": 0.9783
         },
         {
-            "name": "k",
-            "min": 5.0,
-            "max": 8.0
+            "name": "K",
+            "min": 10.0,
+            "max": 25.0
         },
         {
-            "name": "fe",
-            "min": 0.1,
-            "max": 2.0
+            "name": "Fe",
+            "min": 0.2,
+            "max": 0.5
+        },
+        {
+            "name": "Ca",
+            "min": 20.0,
+            "max": 30.0
+        },
+        {
+            "name": "Mg",
+            "min": 7.0,
+            "max": 10.0
+        },
+        {
+            "name": "Mn",
+            "min": 0.05,
+            "max": 0.5
+        },
+        {
+            "name": "B",
+            "min": 0.03,
+            "max": 0.41
+        },
+        {
+            "name": "Cu",
+            "min": 0.0,
+            "max": 0.07
+        },
+        {
+            "name": "glutaraldehyde",
+            "min": 3.0,
+            "max": 4.0
         }
     ],
-    "effects": [
+    "solution_constraints": [
         {
-            "name": "k",
-            "concentration": 6.24142950376661
-        },
-        {
-            "name": "n",
-            "concentration": 1.7156849478174305
-        },
-        {
-            "name": "p",
-            "concentration": 1.15048908043311
-        },
-        {
-            "name": "fe",
-            "concentration": 0.10109519797809603
+            "name": "Flourish Excel",
+            "uniform": true
         }
-    ]
+    ],
+    "effects": []
 }

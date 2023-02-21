@@ -29,10 +29,15 @@ class Dose(BaseModel):
     dose: float  # ml
 
 
-class Constraint(BaseModel):
+class ComponentConstraint(BaseModel):
     name: str  # component name
     min: float  # ppm in tank
     max: float  # ppm in tank
+
+
+class SolutionConstraint(BaseModel):
+    name: str  # solution name
+    uniform: bool  # uniform distribution in all containers
 
 
 class Effect(BaseModel):
@@ -46,5 +51,6 @@ class Plan(BaseModel):
     solutions: list[Solution]
     containers: list[Container]
     schedule: list[Dose]
-    constraints: list[Constraint]
+    component_constraints: list[ComponentConstraint]
+    solution_constraints: list[SolutionConstraint]
     effects: list[Effect]
