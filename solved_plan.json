@@ -1,0 +1,111 @@
+{
+    "name": "ei",
+    "environment": {
+        "volume": 118.7
+    },
+    "solutions": [
+        {
+            "name": "kno3",
+            "components": {
+                "k": 0.3867167409142342,
+                "n": 0.1385386417047136
+            }
+        },
+        {
+            "name": "kh2po4",
+            "components": {
+                "k": 0.28730678825528727,
+                "p": 0.22760508974568364
+            }
+        },
+        {
+            "name": "seachem_iron",
+            "components": {
+                "fe": 0.01
+            }
+        }
+    ],
+    "containers": [
+        {
+            "name": "macro",
+            "solutions": {
+                "kno3": 49.0,
+                "kh2po4": 20.0
+            },
+            "volume": 1000.0
+        },
+        {
+            "name": "micro",
+            "solutions": {
+                "seachem_iron": 40.0
+            },
+            "volume": 1000.0
+        }
+    ],
+    "schedule": [
+        {
+            "name": "macro",
+            "dose": 10.0
+        },
+        {
+            "name": "micro",
+            "dose": 10.0
+        },
+        {
+            "name": "macro",
+            "dose": 10.0
+        },
+        {
+            "name": "micro",
+            "dose": 10.0
+        },
+        {
+            "name": "macro",
+            "dose": 10.0
+        },
+        {
+            "name": "micro",
+            "dose": 10.0
+        }
+    ],
+    "constraints": [
+        {
+            "name": "n",
+            "min": 1.7,
+            "max": 1.9
+        },
+        {
+            "name": "p",
+            "min": 1.1,
+            "max": 1.2
+        },
+        {
+            "name": "k",
+            "min": 5.0,
+            "max": 8.0
+        },
+        {
+            "name": "fe",
+            "min": 0.1,
+            "max": 2.0
+        }
+    ],
+    "effects": [
+        {
+            "name": "k",
+            "concentration": 6.24142950376661
+        },
+        {
+            "name": "n",
+            "concentration": 1.7156849478174305
+        },
+        {
+            "name": "p",
+            "concentration": 1.15048908043311
+        },
+        {
+            "name": "fe",
+            "concentration": 0.10109519797809603
+        }
+    ]
+}
