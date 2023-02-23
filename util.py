@@ -1,5 +1,4 @@
 
-
 import itertools
 import json
 from collections import defaultdict
@@ -40,7 +39,7 @@ def get_effects(plan: Plan) -> list[Effect]:
     return sorted(effects, key=lambda x: x.concentration, reverse=True)  # rank by concentration
 
 
-def optimize_containers(plan: Plan) -> Plan:
+def optimize_containers(plan: Plan, container_names: list[str] | None = None) -> Plan:
 
     # build component_solution_dict
     component_solution_dict = defaultdict(dict)
@@ -56,16 +55,17 @@ def optimize_containers(plan: Plan) -> Plan:
 
     # create solver
     solver = pywraplp.Solver.CreateSolver('SCIP')
-    print(solver)
 
     # create variables
     container_solution_vars = defaultdict(dict)
     for container in plan.containers:
-        container_name = container.name
-        for solution_name in container.solutions:
-            var_name = f'{solution_name}_in_{container_name}(g)'
-            variable = solver.IntVar(0, solver.infinity(), var_name)
-            container_solution_vars[container_name][solution_name] = variable
+        if container_names is None or container.name in container_names:
+            for solution_name in container.solutions:
+                var_name = f'{solution_name}_in_{container.name}(g)'
+                variable = solver.IntVar(0, solver.infinity(), var_name)
+                container_solution_vars[container.name][solution_name] = variable
+        else:
+            container_solution_vars[container.name] = container.solutions
 
     # add constraints
     component_effect_dict = dict()
@@ -95,9 +95,10 @@ def optimize_containers(plan: Plan) -> Plan:
     for constraint in plan.solution_constraints:
         same_solution_list = []
         for container_name in container_solution_vars:
-            for solution_name in container_solution_vars[container_name]:
-                if solution_name == constraint.name:
-                    same_solution_list.append(container_solution_vars[container_name][solution_name])
+            if container_names is None or container_name in container_names:
+                for solution_name in container_solution_vars[container_name]:
+                    if solution_name == constraint.name:
+                        same_solution_list.append(container_solution_vars[container_name][solution_name])
         for solution1, solution2 in itertools.combinations(same_solution_list, 2):
             solver.Add(solution1 == solution2)
 
@@ -123,11 +124,16 @@ def optimize_containers(plan: Plan) -> Plan:
         solved_containers = []
         for container in plan.containers:
             print(f'container: {container.name}')
-            solution_dict = dict()
-            for solution_name in container_solution_vars[container.name]:
-                variable = container_solution_vars[container.name][solution_name]
-                print(f'{solution_name} = {variable.solution_value()}(g)')
-                solution_dict[solution_name] = variable.solution_value()
+            if container_names is None or container.name in container_names:
+                solution_dict = dict()
+                for solution_name in container_solution_vars[container.name]:
+                    variable = container_solution_vars[container.name][solution_name]
+                    solution_dict[solution_name] = variable.solution_value()
+            else:
+                solution_dict = container_solution_vars[container.name]
+
+            for solution_name in solution_dict:
+                print(f'{solution_name} = {solution_dict[solution_name]}(g)')
 
             solved_containers.append(Container(name=container.name,
                                                solutions=solution_dict,
@@ -139,14 +145,3 @@ def optimize_containers(plan: Plan) -> Plan:
         return solved_plan
     else:
         print('The problem does not have an optimal solution.')
-
-
-def main():
-    plan = Plan.parse_file('sample_plan.json')
-    solved_plan = optimize_containers(plan)
-    with open('solved_plan.json', 'w') as file_obj:
-        file_obj.write(solved_plan.json(indent=4))
-
-
-if __name__ == '__main__':
-    main()
