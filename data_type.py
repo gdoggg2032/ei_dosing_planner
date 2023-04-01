@@ -10,12 +10,7 @@ class Environment(BaseModel):
 class Solution(BaseModel):
     name: str
     components: dict[str, float]  # substance to concentration(%)
-
-    @validator('components')
-    def check_component_percentage(cls, v):
-        if sum(v.values()) > 1:
-            raise ValueError('sum of component percentages > 1')
-        return v
+    price_per_g: float | None = 1e-6
 
 
 class Container(BaseModel):
@@ -47,6 +42,7 @@ class Effect(BaseModel):
 
 class Plan(BaseModel):
     name: str
+    price: float | None = 0
     environment: Environment
     solutions: list[Solution]
     containers: list[Container]

@@ -41,6 +41,12 @@ def get_effects(plan: Plan) -> list[Effect]:
 
 def optimize_containers(plan: Plan, container_names: list[str] | None = None) -> Plan:
 
+
+    # build solution_price_dict
+    solution_price_dict = dict()
+    for solution in plan.solutions:
+        solution_price_dict[solution.name] = solution.price_per_g
+
     # build component_solution_dict
     component_solution_dict = defaultdict(dict)
     for solution in plan.solutions:
@@ -102,13 +108,13 @@ def optimize_containers(plan: Plan, container_names: list[str] | None = None) ->
         for solution1, solution2 in itertools.combinations(same_solution_list, 2):
             solver.Add(solution1 == solution2)
 
-    # objective function: minimize usage of all solutions
-    total_usage = 0
+    # objective function: minimize price of all usages
+    total_price = 0
     for container_name in container_solution_vars:
         for solution_name in container_solution_vars[container_name]:
-            total_usage += container_solution_vars[container_name][solution_name]
+            total_price += container_solution_vars[container_name][solution_name] * solution_price_dict[solution_name]
 
-    objective = total_usage
+    objective = total_price
     solver.Minimize(objective)
 
     # info
@@ -138,7 +144,8 @@ def optimize_containers(plan: Plan, container_names: list[str] | None = None) ->
             solved_containers.append(Container(name=container.name,
                                                solutions=solution_dict,
                                                volume=container.volume))
-        solved_plan = plan.copy(update=dict(containers=solved_containers))
+        solved_plan = plan.copy(update=dict(price=solver.Objective().Value(),
+                                            containers=solved_containers,))
         # calculate effects
         effects = get_effects(solved_plan)
         solved_plan = solved_plan.copy(update=dict(effects=effects))
