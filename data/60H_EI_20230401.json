@@ -132,8 +132,7 @@
                 "KNO3": 0.0,
                 "KH2PO4": 3.0,
                 "KCl": 20.0,
-                "Flourish Excel": 23.0,
-                "Flourish Nitrogen": 32.0
+                "Flourish Excel": 23.0
             },
             "volume": 200.0
         },
@@ -158,7 +157,8 @@
         {
             "name": "complement",
             "solutions": {
-                "Flourish Excel": 23.0
+                "Flourish Excel": 23.0,
+                "Flourish Nitrogen": 32.0
             },
             "volume": 200.0
         }
