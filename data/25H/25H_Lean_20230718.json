@@ -1,0 +1,241 @@
+{
+    "name": "25H_Lean",
+    "price": 65.14503599999999,
+    "environment": {
+        "volume": 21.5
+    },
+    "solutions": [
+        {
+            "name": "KNO3",
+            "components": {
+                "K": 0.3867167409142342,
+                "N": 0.1385386417047136
+            },
+            "price_per_g": 0.274
+        },
+        {
+            "name": "KH2PO4",
+            "components": {
+                "K": 0.28730678825528727,
+                "P": 0.22760508974568364
+            },
+            "price_per_g": 0.33
+        },
+        {
+            "name": "KCl",
+            "components": {
+                "K": 0.5244802146,
+                "Cl": 0.47551978537
+            },
+            "price_per_g": 0.105
+        },
+        {
+            "name": "CaCl2",
+            "components": {
+                "Ca": 0.3611,
+                "Cl": 0.6389
+            },
+            "price_per_g": 0.089
+        },
+        {
+            "name": "MgCl2.6H2O",
+            "components": {
+                "Mg": 0.1196,
+                "Cl": 0.3488
+            },
+            "price_per_g": 0.14
+        },
+        {
+            "name": "Flourish Iron",
+            "components": {
+                "Fe": 0.01
+            },
+            "price_per_g": 1e-06
+        },
+        {
+            "name": "Equilibrium",
+            "components": {
+                "K": 0.1909,
+                "Ca": 0.0806,
+                "Mg": 0.0241,
+                "Fe": 0.0011,
+                "Mn": 0.0006
+            },
+            "price_per_g": 1e-06
+        },
+        {
+            "name": "Flourish Trace",
+            "components": {
+                "B": 2.8e-05,
+                "Co": 3e-07,
+                "Cu": 3.2e-05,
+                "Mn": 8.5e-05,
+                "Mo": 3e-06,
+                "Zn": 0.000169
+            },
+            "price_per_g": 1e-06
+        },
+        {
+            "name": "Flourish",
+            "components": {
+                "N": 0.0007,
+                "P": 4.364e-05,
+                "K": 0.00307137,
+                "Ca": 0.0014,
+                "Mg": 0.0011,
+                "S": 0.002773,
+                "B": 9e-05,
+                "Cl": 0.0115,
+                "Co": 4e-06,
+                "Cu": 1e-06,
+                "Fe": 0.0032,
+                "Mn": 0.000118,
+                "Mo": 9e-06,
+                "Na": 0.0013,
+                "Zn": 7e-06
+            },
+            "price_per_g": 1e-06
+        },
+        {
+            "name": "Flourish Nitrogen",
+            "components": {
+                "N": 0.015,
+                "K": 0.02
+            },
+            "price_per_g": 1e-06
+        },
+        {
+            "name": "Plantex CSM+B",
+            "components": {
+                "Mg": 0.014,
+                "Cu": 0.00096,
+                "Fe": 0.067,
+                "Mo": 0.00058,
+                "B": 0.008,
+                "Mn": 0.019,
+                "Zn": 0.0038
+            },
+            "price_per_g": 1.3448
+        },
+        {
+            "name": "Flourish Excel",
+            "components": {
+                "glutaraldehyde": 0.02
+            },
+            "price_per_g": 1.76
+        }
+    ],
+    "containers": [
+        {
+            "name": "Mixed",
+            "solutions": {
+                "Plantex CSM+B": 0.0,
+                "Flourish Iron": 36.0,
+                "KCl": 17.0,
+                "Flourish Excel": 36.0
+            },
+            "volume": 200.0
+        }
+    ],
+    "schedule": [
+        {
+            "name": "Mixed",
+            "dose": 1.0
+        },
+        {
+            "name": "Mixed",
+            "dose": 1.0
+        },
+        {
+            "name": "Mixed",
+            "dose": 1.0
+        },
+        {
+            "name": "Mixed",
+            "dose": 1.0
+        },
+        {
+            "name": "Mixed",
+            "dose": 1.0
+        },
+        {
+            "name": "Mixed",
+            "dose": 1.0
+        }
+    ],
+    "component_constraints": [
+        {
+            "name": "N",
+            "min": 0.0,
+            "max": 1.0
+        },
+        {
+            "name": "P",
+            "min": 0.0,
+            "max": 3.0
+        },
+        {
+            "name": "K",
+            "min": 12.0,
+            "max": 15.0
+        },
+        {
+            "name": "Fe",
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "name": "glutaraldehyde",
+            "min": 1.0,
+            "max": 4.0
+        }
+    ],
+    "solution_constraints": [
+        {
+            "name": "Flourish Excel",
+            "uniform": true
+        }
+    ],
+    "effects": [
+        {
+            "name": "K",
+            "concentration": 12.441158578883721
+        },
+        {
+            "name": "Cl",
+            "concentration": 11.279771652962792
+        },
+        {
+            "name": "glutaraldehyde",
+            "concentration": 1.0046511627906978
+        },
+        {
+            "name": "Fe",
+            "concentration": 0.5023255813953489
+        },
+        {
+            "name": "Mg",
+            "concentration": 0.0
+        },
+        {
+            "name": "Cu",
+            "concentration": 0.0
+        },
+        {
+            "name": "Mo",
+            "concentration": 0.0
+        },
+        {
+            "name": "B",
+            "concentration": 0.0
+        },
+        {
+            "name": "Mn",
+            "concentration": 0.0
+        },
+        {
+            "name": "Zn",
+            "concentration": 0.0
+        }
+    ]
+}
