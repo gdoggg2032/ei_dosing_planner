@@ -42,6 +42,7 @@ class Effect(BaseModel):
 
 class Plan(BaseModel):
     name: str
+    comment: str
     price: float | None = 0
     environment: Environment
     solutions: list[Solution]
