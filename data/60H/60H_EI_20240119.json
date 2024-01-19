@@ -1,7 +1,7 @@
 {
     "name": "60H_EI",
     "comment": "follow https://www.reddit.com/r/PlantedTank/comments/dnse5g/my_20_g_softwater_mess/ Ca:Mg:K ratio 3:1:0.5",
-    "price": 34.654540000000004,
+    "price": 34.984526,
     "environment": {
         "volume": 118.7
     },
@@ -154,9 +154,9 @@
             "solutions": {
                 "Urea": 0.0,
                 "KNO3": 0.0,
-                "KH2PO4": 2.0,
+                "KH2PO4": 3.0,
                 "KCl": 0.0,
-                "Flourish Nitrogen": 120.0,
+                "Flourish Nitrogen": 106.0,
                 "Glutardialdehyde 25%": 2.0
             },
             "volume": 200.0
@@ -322,7 +322,7 @@
         },
         {
             "name": "K",
-            "concentration": 5.011985807094481
+            "concentration": 5.024297160515353
         },
         {
             "name": "glutaraldehyde",
@@ -330,11 +330,11 @@
         },
         {
             "name": "N",
-            "concentration": 3.0328559393428813
+            "concentration": 2.679022746419545
         },
         {
             "name": "P",
-            "concentration": 0.7669927202887402
+            "concentration": 1.15048908043311
         },
         {
             "name": "Fe",
