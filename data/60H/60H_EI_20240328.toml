@@ -1,6 +1,6 @@
 name = "60H_EI"
 comment = """
-water source GH(dH): 1.75, 
+water source GH(dH): 1.75,
 consider water source GH (2dH) and target GH = 5 dH
 """
 price = 47.985640000000004
