@@ -1,0 +1,406 @@
+name = "60H_EI"
+comment = """water source GH(dH): 1.75,
+consider water source GH (2dH) and target GH = 5 dH
+pH vary from 7.03 (CO2 off) to 6.3 (CO2 on, controlled by pH Controller)
+Main Target:
+Rotala macrandra rot leaf, and recover after add lots of ADA root tabs (in ADA aquasoil packages).
+So try to add more N,
+20240707: All plants' old leaves dying, try add more K and P
+"""
+
+price = 57.23163999999999
+
+[environment]
+volume = 118.7
+
+[[containers]]
+name = "macro"
+volume = 400.0
+
+[containers.solutions]
+Urea = 14.0
+KNO3 = 46.0
+KH2PO4 = 3.0
+K2CO3 = 9.0
+"Glutardialdehyde 25%" = 3.0
+
+[[containers]]
+name = "micro"
+volume = 400.0
+
+[containers.solutions]
+"Flourish Iron" = 40.0
+"Plantex CSM+B" = 12.0
+"Glutardialdehyde 25%" = 3.0
+
+[[containers]]
+name = "GH booster"
+volume = 200.0
+
+[containers.solutions]
+"CaCl2.2H2O" = 42.0
+"MgCl2.6H2O" = 32.0
+"Glutardialdehyde 25%" = 3.0
+
+[[containers]]
+name = "complement"
+volume = 200.0
+
+[containers.solutions]
+"Glutardialdehyde 25%" = 3.0
+[[effects]]
+name = "GH(ppm)"
+concentration = 56.48059056444819
+
+[[effects]]
+name = "Cl"
+concentration = 39.70286436394271
+
+[[effects]]
+name = "NO3"
+concentration = 17.82548441449031
+
+[[effects]]
+name = "K"
+concentration = 15.00195268333233
+
+[[effects]]
+name = "Ca"
+concentration = 14.468239258635213
+
+[[effects]]
+name = "N"
+concentration = 8.152302560078027
+
+[[effects]]
+name = "Mg"
+concentration = 4.942544229149115
+
+[[effects]]
+name = "glutaraldehyde"
+concentration = 3.7910699241786014
+
+[[effects]]
+name = "GH(dH)"
+concentration = 3.1629130716090983
+
+[[effects]]
+name = "PO4"
+concentration = 1.3228938500421228
+
+[[effects]]
+name = "Fe"
+concentration = 0.7607413647851727
+
+[[effects]]
+name = "P"
+concentration = 0.43143340516241635
+
+[[effects]]
+name = "Fe(Ferrous Gluconate)"
+concentration = 0.2527379949452401
+
+[[effects]]
+name = "KH(dKH)"
+concentration = 0.23041015385004213
+
+[[effects]]
+name = "Mn"
+concentration = 0.14406065711878688
+
+[[effects]]
+name = "KH(meq/L)"
+concentration = 0.08228934064448189
+
+[[effects]]
+name = "B"
+concentration = 0.06065711878685763
+
+[[effects]]
+name = "Zn"
+concentration = 0.02881213142375737
+
+[[effects]]
+name = "Cu"
+concentration = 0.007278854254422915
+
+[[effects]]
+name = "Mo"
+concentration = 0.004397641112047178
+[[schedule]]
+name = "macro"
+dose = 10.0
+
+[[schedule]]
+name = "complement"
+dose = 10.0
+
+[[schedule]]
+name = "micro"
+dose = 10.0
+
+[[schedule]]
+name = "complement"
+dose = 10.0
+
+[[schedule]]
+name = "macro"
+dose = 10.0
+
+[[schedule]]
+name = "complement"
+dose = 10.0
+
+[[schedule]]
+name = "micro"
+dose = 10.0
+
+[[schedule]]
+name = "complement"
+dose = 10.0
+
+[[schedule]]
+name = "macro"
+dose = 10.0
+
+[[schedule]]
+name = "complement"
+dose = 10.0
+
+[[schedule]]
+name = "micro"
+dose = 10.0
+
+[[schedule]]
+name = "complement"
+dose = 10.0
+
+[[schedule]]
+name = "GH booster"
+dose = 30.0
+[[component_constraints]]
+name = "N"
+min = 8.0
+max = 20.0
+
+[[component_constraints]]
+name = "NO3"
+min = 17.68
+max = 22.1
+
+[[component_constraints]]
+name = "P"
+min = 0.4
+max = 0.8
+
+[[component_constraints]]
+name = "K"
+min = 15.0
+max = 20.0
+
+[[component_constraints]]
+name = "Fe"
+min = 0.5
+max = 1.0
+
+[[component_constraints]]
+name = "Fe(Ferrous Gluconate)"
+min = 0.25
+max = 0.5
+
+[[component_constraints]]
+name = "Ca"
+min = 14.4
+max = 24.0
+
+[[component_constraints]]
+name = "Mg"
+min = 4.8
+max = 8.0
+
+[[component_constraints]]
+name = "Mn"
+min = 0.14
+max = 0.5
+
+[[component_constraints]]
+name = "B"
+min = 0.05
+max = 0.41
+
+[[component_constraints]]
+name = "Cu"
+min = 0.0
+max = 0.07
+
+[[component_constraints]]
+name = "glutaraldehyde"
+min = 3.0
+max = 4.0
+[[solution_constraints]]
+name = "Glutardialdehyde 25%"
+uniform = true
+[[solutions]]
+name = "Urea"
+price_per_g = 0.14
+
+[solutions.components]
+N = 0.4664
+
+[[solutions]]
+name = "KNO3"
+price_per_g = 0.274
+
+[solutions.components]
+K = 0.3867167409142342
+N = 0.1385386417047136
+NO3 = 0.6133
+
+[[solutions]]
+name = "KH2PO4"
+price_per_g = 0.33
+
+[solutions.components]
+K = 0.28730678825528727
+P = 0.22760508974568364
+PO4 = 0.6979
+
+[[solutions]]
+name = "K2CO3"
+price_per_g = 0.18
+
+[solutions.components]
+K = 0.5658
+"KH(meq/L)" = 0.01447073294
+"KH(dKH)" = 0.04051805224
+
+[[solutions]]
+name = "KCl"
+price_per_g = 0.105
+
+[solutions.components]
+K = 0.5244802146
+Cl = 0.47551978537
+
+[[solutions]]
+name = "CaCl2"
+price_per_g = 0.089
+
+[solutions.components]
+Ca = 0.3611
+Cl = 0.6389
+"GH(ppm)" = 0.9016667
+"GH(dH)" = 0.0504933352
+
+[[solutions]]
+name = "CaCl2.2H2O"
+price_per_g = 0.12
+
+[solutions.components]
+Ca = 0.2726
+Cl = 0.4823
+"GH(ppm)" = 0.6806822
+"GH(dH)" = 0.0381182032
+
+[[solutions]]
+name = "MgCl2.6H2O"
+price_per_g = 0.14
+
+[solutions.components]
+Mg = 0.1196
+Cl = 0.3488
+"GH(ppm)" = 0.4925128
+"GH(dH)" = 0.0275807168
+
+[[solutions]]
+name = "Flourish Iron"
+price_per_g = 1e-06
+
+[solutions.components]
+Fe = 0.01
+"Fe(Ferrous Gluconate)" = 0.01
+
+[[solutions]]
+name = "Equilibrium"
+price_per_g = 1e-06
+
+[solutions.components]
+K = 0.1909
+Ca = 0.0806
+Mg = 0.0241
+Fe = 0.0011
+Mn = 0.0006
+"GH(ppm)" = 0.300502
+"GH(dH)" = 0.016828112
+
+[[solutions]]
+name = "Flourish Trace"
+price_per_g = 1e-06
+
+[solutions.components]
+B = 2.8e-05
+Co = 3e-07
+Cu = 3.2e-05
+Mn = 8.5e-05
+Mo = 3e-06
+Zn = 0.000169
+
+[[solutions]]
+name = "Flourish"
+price_per_g = 1e-06
+
+[solutions.components]
+N = 0.0007
+P = 4.364e-05
+K = 0.00307137
+Ca = 0.0014
+Mg = 0.0011
+S = 0.002773
+B = 9e-05
+Cl = 0.0115
+Co = 4e-06
+Cu = 1e-06
+Fe = 0.0032
+Mn = 0.000118
+Mo = 9e-06
+Na = 0.0013
+Zn = 7e-06
+"GH(ppm)" = 0.0080256
+"GH(dH)" = 0.0004494336
+
+[[solutions]]
+name = "Flourish Nitrogen"
+price_per_g = 1e-06
+
+[solutions.components]
+N = 0.015
+K = 0.02
+
+[[solutions]]
+name = "Plantex CSM+B"
+price_per_g = 1.3448
+
+[solutions.components]
+Mg = 0.014
+Cu = 0.00096
+Fe = 0.067
+Mo = 0.00058
+B = 0.008
+Mn = 0.019
+Zn = 0.0038
+"GH(ppm)" = 0.057652
+"GH(dH)" = 0.003228512
+
+[[solutions]]
+name = "Flourish Excel"
+price_per_g = 1.76
+
+[solutions.components]
+glutaraldehyde = 0.02
+
+[[solutions]]
+name = "Glutardialdehyde 25%"
+price_per_g = 1.2
+
+[solutions.components]
+glutaraldehyde = 0.25
