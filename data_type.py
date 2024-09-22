@@ -47,5 +47,5 @@ class Plan(BaseModel):
     containers: list[Container]
     schedule: list[Dose]
     component_constraints: list[ComponentConstraint]
-    solution_constraints: list[SolutionConstraint]
+    solution_constraints: list[SolutionConstraint]  | None = []
     effects: list[Effect]

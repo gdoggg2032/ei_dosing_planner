@@ -97,16 +97,16 @@ def optimize_containers(plan: Plan, container_names: list[str] | None = None) ->
         solver.Add(total_component_effect >= constraint.min)
         solver.Add(total_component_effect <= constraint.max)
         component_effect_dict[component_name] = total_component_effect
-
-    for constraint in plan.solution_constraints:
-        same_solution_list = []
-        for container_name in container_solution_vars:
-            if container_names is None or container_name in container_names:
-                for solution_name in container_solution_vars[container_name]:
-                    if solution_name == constraint.name:
-                        same_solution_list.append(container_solution_vars[container_name][solution_name])
-        for solution1, solution2 in itertools.combinations(same_solution_list, 2):
-            solver.Add(solution1 == solution2)
+    if plan.solution_constraints:
+        for constraint in plan.solution_constraints:
+            same_solution_list = []
+            for container_name in container_solution_vars:
+                if container_names is None or container_name in container_names:
+                    for solution_name in container_solution_vars[container_name]:
+                        if solution_name == constraint.name:
+                            same_solution_list.append(container_solution_vars[container_name][solution_name])
+            for solution1, solution2 in itertools.combinations(same_solution_list, 2):
+                solver.Add(solution1 == solution2)
 
     # objective function: minimize price of all usages
     total_price = 0
